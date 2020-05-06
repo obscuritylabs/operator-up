@@ -83,10 +83,13 @@ nav:
   - Getting started: getting-started.md
   - Windows:
     - Privilege Escalation: windows/priv_esc.md
+    - Situational Awareness: windows/sa_cmds.md
   - Linux:
     - Search: plugins/search.md
   - Scanning:
     - nmap: scanning/nmap.md
+  - Web App:
+    - sqlmap: web_app/sqlmap.md 
   - Customization: customization.md
   - Data privacy: data-privacy.md
   - Contributing: contributing.md
