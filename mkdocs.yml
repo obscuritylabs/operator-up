@@ -18,6 +18,8 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  favicon: img/favicon.png
+  logo: img/logo_transparent_crop.jpg
 
 extra:
   social:
@@ -80,7 +82,9 @@ edit_uri: https://github.com/obscuritylabs/operator-up
 # Page tree
 nav:
   - Home: index.md
-  - Getting started: getting-started.md
+  - Building: building.md
+  - Contributing: contributing.md
+  - License: license.md
   - Windows:
     - Privilege Escalation: windows/priv_esc.md
     - Situational Awareness: windows/sa_cmds.md
@@ -90,7 +94,3 @@ nav:
     - nmap: scanning/nmap.md
   - Web App:
     - sqlmap: web_app/sqlmap.md 
-  - Customization: customization.md
-  - Data privacy: data-privacy.md
-  - Contributing: contributing.md
-  - License: license.md
