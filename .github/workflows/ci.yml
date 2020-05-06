@@ -5,9 +5,10 @@ on:
 
 # Jobs to run
 jobs:
-  if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+
   # Deploy docs to github
   deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
 
