@@ -46,3 +46,18 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: poetry install
+      
+      # Set configuration for repository and deploy documentation
+      - env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_NAME: ${{ secrets.GH_NAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+        run: |
+          REMOTE="https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          git config --global user.name "${GH_NAME}"
+          git config --global user.email "${GH_EMAIL}"
+          git remote set-url origin ${REMOTE}
+
+      - run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
