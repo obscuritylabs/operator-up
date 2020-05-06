@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "operator-up"
+version = "0.1.0"
+description = "Helpful operator notes and techniques in actionable form"
+authors = ["Alexander Rymdeko-Harvey"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+mkdocs = "^1.1"
+mkdocs-material = "^5.1.5"
+mkdocs-minify-plugin = "^0.3.0"
+mkdocs-git-revision-date-localized-plugin = "^0.5.2"
+mkdocs-awesome-pages-plugin = "^2.2.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
