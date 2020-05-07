@@ -29,7 +29,9 @@ This project is purely dirven by operators and commands of operators on live OPs
 - [Windows Remote Situational Awareness Commands](windows/remote_sa_cmds/)
 - [Windows Network Situational Awareness Commands](windows/network_sa_cmds/)
 - [Windows Lateral Movement](windows/lat_movement/)
+- [Windows Remote Alteration ](windows/remote_alteration/)
 - [Windows Persistence](windows/persistence/)
+- [Windows Collection Operations](windows/collection_operations/)
 
 ### Scanning
 

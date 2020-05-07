@@ -90,8 +90,10 @@ nav:
     - Host Situational Awareness: windows/local_sa_cmds.md
     - Remote Situational Awareness: windows/remote_sa_cmds.md
     - Network Situational Awareness: windows/network_sa_cmds.md
+    - Remote Alteration  : windows/remote_alteration.md
     - Lateral Movement: windows/lat_movement.md
     - Persistence: windows/persistence.md
+    - Collection Operations: windows/collection_operations.md
   - Scanning:
     - nmap: scanning/nmap.md
   - Web Application:
