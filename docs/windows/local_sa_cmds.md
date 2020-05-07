@@ -1,4 +1,4 @@
-# Windows FYSA Commands
+# Windows Local Situational Awareness Commands
 
 ## Find all token / user data:
 ```whoami /all```

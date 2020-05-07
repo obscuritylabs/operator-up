@@ -1,4 +1,4 @@
-# Windows Priv Esc Commands
+# Windows Privilege Escalation Commands
 
 ## Host Privilege Escalation
 

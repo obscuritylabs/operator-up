@@ -87,10 +87,12 @@ nav:
   - License: license.md
   - Windows:
     - Privilege Escalation: windows/priv_esc.md
-    - Situational Awareness: windows/sa_cmds.md
-  - Linux:
-    - Search: plugins/search.md
+    - Host Situational Awareness: windows/local_sa_cmds.md
+    - Remote Situational Awareness: windows/remote_sa_cmds.md
+    - Network Situational Awareness: windows/network_sa_cmds.md
+    - Lateral Movement: windows/lat_movement.md
+    - Persistence: windows/persistence.md
   - Scanning:
     - nmap: scanning/nmap.md
-  - Web App:
-    - sqlmap: web_app/sqlmap.md 
+  - Web Application:
+    - SQL Injections: web_app/sql_injections.md 

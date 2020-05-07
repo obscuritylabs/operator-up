@@ -1,6 +1,6 @@
-# SQL Map cheat sheet for the wicked 
+# SQL Injections
 
-## SQLMap Optimization 
+## SQLMap
 
 ### Clone from dev for bleeding edge:
 `git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev`
