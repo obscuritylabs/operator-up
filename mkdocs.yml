@@ -97,4 +97,8 @@ nav:
   - Scanning:
     - nmap: scanning/nmap.md
   - Web Application:
-    - SQL Injections: web_app/sql_injections.md 
+    - SQL Injections: web_app/sql_injections.md
+
+google_analytics:
+  - UA-64026800-6
+  - auto
