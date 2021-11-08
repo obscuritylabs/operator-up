@@ -98,6 +98,8 @@ nav:
     - nmap: scanning/nmap.md
   - Web Application:
     - SQL Injections: web_app/sql_injections.md
+  - OSINT:
+    - Email: osint/email.md
 
 google_analytics:
   - UA-64026800-6
