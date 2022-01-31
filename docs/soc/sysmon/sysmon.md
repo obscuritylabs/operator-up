@@ -35,6 +35,34 @@ The process creation event provides extended information about a newly created p
 | ParentUser        | Name of the account that created the parent process. It usually contains domain name and username                                             |
 
 #### Elastic ECS Mapping
+
+```text
+Process Create:
+RuleName: technique_id=T1218.002,technique_name=rundll32.exe
+UtcTime: 2022-01-29 05:33:08.667
+ProcessGuid: {a7262f76-d194-61f4-c000-000000000900}
+ProcessId: 1168
+Image: C:\Windows\System32\rundll32.exe
+FileVersion: 10.0.19041.746 (WinBuild.160101.0800)
+Description: Windows host process (Rundll32)
+Product: Microsoft® Windows® Operating System
+Company: Microsoft Corporation
+OriginalFileName: RUNDLL32.EXE
+CommandLine: C:\Windows\system32\rundll32.exe C:\Windows\system32\PcaSvc.dll,PcaPatchSdbTask
+CurrentDirectory: C:\Windows\system32\
+User: NT AUTHORITY\SYSTEM
+LogonGuid: {a7262f76-d0ce-61f4-e703-000000000000}
+LogonId: 0x3E7
+TerminalSessionId: 0
+IntegrityLevel: System
+Hashes: SHA1=DD399AE46303343F9F0DA189AEE11C67BD868222,MD5=EF3179D498793BF4234F708D3BE28633,SHA256=B53F3C0CD32D7F20849850768DA6431E5F876B7BFA61DB0AA0700B02873393FA,IMPHASH=4DB27267734D1576D75C991DC70F68AC
+ParentProcessGuid: {a7262f76-d0d6-61f4-2d00-000000000900}
+ParentProcessId: 1956
+ParentImage: C:\Windows\System32\svchost.exe
+ParentCommandLine: C:\Windows\system32\svchost.exe -k netsvcs -p -s Schedule
+ParentUser: NT AUTHORITY\SYSTEM
+```
+
 | ECS Event Mapping | Field Data (Example) | Sysmon Field Mapping |
 |----|----|----|
 | event.action | N/A |
