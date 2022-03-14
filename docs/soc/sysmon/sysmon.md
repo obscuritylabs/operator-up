@@ -1,7 +1,37 @@
-# Sysmon 
+# Sysmon
 
+## Sysmon cheat sheet
 
-## Sysmon Elastic ECS Cheatsheet 
+| ID  | Name                 | Tag                                              |
+| --- | -------------------- | ------------------------------------------------ |
+| 1   | ProcessCreate        | Process Create                                   |
+| 2   | FileCreateTime       | File creation time                               |
+| 3   | NetworkConnect       | Network connection detected                      |
+| 4   | N/A                  | Sysmon service state change (cannot be filtered) |
+| 5   | ProcessTerminate     | Process terminated                               |
+| 6   | DriverLoad           | Driver Loaded                                    |
+| 7   | ImageLoad            | Image loaded                                     |
+| 8   | CreateRemoteThread   | CreateRemoteThread detected                      |
+| 9   | RawAccessRead        | RawAccessRead detected                           |
+| 10  | ProcessAccess        | Process accessed                                 |
+| 11  | FileCreate           | File created                                     |
+| 12  | RegistryEvent        | Registry object added or deleted                 |
+| 13  | RegistryEvent        | Registry value set                               |
+| 14  | RegistryEvent        | Registry object renamed                          |
+| 15  | FileCreateStreamHash | File stream created                              |
+| 16  | n/a                  | Sysmon configuration change (cannot be filtered) |
+| 17  | PipeEvent            | Named pipe created                               |
+| 18  | PipeEvent            | Named pipe connected                             |
+| 19  | WmiEvent             | WMI filter                                       |
+| 20  | WmiEvent             | WMI consumer                                     |
+| 21  | WmiEvent             | WMI consumer filter                              |
+| 22  | DNSQuery             | DNS query                                        |
+| 23  | FileDelete           | File Delete archived                             |
+| 24  | ClipboardChange      | New content in the clipboard                     |
+| 25  | ProcessTampering     | Process image change                             |
+| 26  | FileDeleteDetected   | File Delete logged                               |
+
+## Sysmon Elastic ECS cheat sheet
 
 ### EventID 1 Process Create
 
@@ -97,7 +127,6 @@ ParentUser: NT AUTHORITY\SYSTEM
 | user.id | S-1-5-18 | LogonId |
 | user.name | SYSTEM | User |
 
-
 ### EventID 2 File creation time changed
 
 The change file creation time event is registered when a file creation time is explicitly modified by a process. This event helps tracking the real creation time of a file. Attackers may change the file creation time of a backdoor to make it look like it was installed with the operating system. Note that many processes legitimately change the creation time of a file; it does not necessarily indicate malicious activity.
@@ -116,6 +145,7 @@ The change file creation time event is registered when a file creation time is e
 | User                    | Name of the account that created the file. It usually contains domain name and username |
 
 #### Elastic ECS Mapping
+
 | ECS Event Mapping | Field Data (Example) | Sysmon Field Mapping |
 |----|----|----|
 
@@ -177,13 +207,13 @@ DestinationPortName: -
 | event.kind | event | N/A |
 | event.module | sysmon | N/A |
 | event.category | Network | N/A |
-| event.type | connection, start, protocol | N/A | 
+| event.type | connection, start, protocol | N/A |
 | event.provider | Microsoft-Windows-Sysmon | N/A |
 | event.action | Network connection detected (rule: NetworkConnect) | N/A |
 | destination.domain | - | DestinationHostname |
 | destination.ip | 10.40.2.103 | DestinationIp |
 | destination.port | 3389 | DestinationPort |
-| event.created | Jan 31, 2022 @ 14:41:22.352 | UtcTime | 
+| event.created | Jan 31, 2022 @ 14:41:22.352 | UtcTime |
 | network.community_id | 1:pFiw4iD296r81i3sN/GWjIMRpVk= | N/A |
 | network.direction | ingress | Initiated |
 | network.protocol | - | N/A |
@@ -202,3 +232,6 @@ DestinationPortName: -
 | user.id | S-1-5-18 | User |
 | user.name | NETWORK SERVICE | User |
 
+### EventID 3 Service state changed
+
+The service state change event reports the state of the Sysmon service (started or stopped).
