@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://obscuritylabs.com/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/building/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/contributing/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/license/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/osint/email/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/scanning/nmap/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/soc/sysmon/sysmon/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/web_app/sql_injections/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/collection_operations/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/lat_movement/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/local_sa_cmds/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/network_sa_cmds/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/persistence/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/priv_esc/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/remote_alteration/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://obscuritylabs.com/windows/remote_sa_cmds/</loc>
-         <lastmod>2022-01-31</lastmod>
+         <lastmod>2022-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
